@@ -1,9 +1,9 @@
 AC_PREREQ(2.59)
 AC_COPYRIGHT([Copyright (c) 2011-2015 Varnish Software AS])
-AC_INIT([libvmod-digest], [trunk])
+AC_INIT([libvmod-maxdigest], [trunk])
 AC_CONFIG_MACRO_DIR([m4])
 m4_ifndef([VARNISH_VMOD_INCLUDES], AC_MSG_ERROR([Need varnish.m4]))
-AC_CONFIG_SRCDIR(src/vmod_digest.vcc)
+AC_CONFIG_SRCDIR(src/vmod_maxdigest.vcc)
 AM_CONFIG_HEADER(config.h)
 
 AC_CANONICAL_SYSTEM
@@ -24,7 +24,7 @@ AC_PROG_LIBTOOL
 AC_PROG_MAKE_SET
 
 AC_CHECK_LIB(mhash, mhash_count, [AC_DEFINE([HAVE_MHASH],[1],[Define we have mhash])],
-		[AC_MSG_ERROR([libvmod-digest requires libmhash.])])
+		[AC_MSG_ERROR([libvmod-maxdigest requires libmhash.])])
 # Check for rst utilities
 AC_CHECK_PROGS(RST2MAN, [rst2man rst2man.py], "no")
 if test "x$RST2MAN" = "xno"; then
