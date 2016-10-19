@@ -137,14 +137,12 @@ base64_decode(struct e_alphabet *alpha, char *d, unsigned dlen, const char *s, i
 				return (-1);
 			unsigned c = (u >> 16) & 0xff;
 			if (as_hex) {
-				if (c > 0) {
-					*d = alpha->digest_hex_chars[(c >> 4) & 0x0F];
-					d++;
-					*d = (char)alpha->digest_hex_chars[c & 0x0F];
-					d++;
-					l++;
-					l++;
-				}
+				*d = (char)alpha->digest_hex_chars[(c >> 4) & 0x0F];
+				l++;
+				d++;
+				*d = (char)alpha->digest_hex_chars[c & 0x0F];
+				l++;
+				d++;
 			}
 			else {
 				*d = c;
