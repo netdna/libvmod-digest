@@ -135,7 +135,7 @@ base64_decode(struct e_alphabet *alpha, char *d, unsigned dlen, const char *s, i
 		for (v = 0; v < 3; v++) {
 			if (l >= dlen - 1)
 				return (-1);
-			if(!*s && (($v == 1 && !($u & 0x00FFFF)) || ($v == 2 && !($u & 0x0000FF)))) {
+			if(!*s && ((v == 1 && !(u & 0x00FFFF)) || (v == 2 && !(u & 0x0000FF)))) {
 				// DELIVERY-21: if we have digested all input chars, and the remaining bits are all 0s, then we have hit padding and
 				// don't need to append the null values. I believe this should apply to both hex and regular decode.
 				break;
